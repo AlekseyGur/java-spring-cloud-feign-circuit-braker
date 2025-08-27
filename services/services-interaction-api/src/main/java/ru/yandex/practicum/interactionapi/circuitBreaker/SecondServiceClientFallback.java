@@ -11,4 +11,9 @@ public class SecondServiceClientFallback implements SecondServiceClient {
     public ResponceDto getHello() {
         return new ResponceDto("fallback", "Второй сервис недоступен!");
     }
+
+    @Override
+    public ResponceDto checkDelay() {
+        return new ResponceDto("fallback", "Второй сервис недоступен по таймауту!");
+    }
 }

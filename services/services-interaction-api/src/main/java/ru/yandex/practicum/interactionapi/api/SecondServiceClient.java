@@ -13,4 +13,9 @@ public interface SecondServiceClient {
     @CircuitBreaker(name = "default")
     @GetMapping("/api/v1/hello")
     ResponceDto getHello();
+
+    @CircuitBreaker(name = "default")
+    @GetMapping("/api/v1/delay")
+    ResponceDto checkDelay();
+
 }

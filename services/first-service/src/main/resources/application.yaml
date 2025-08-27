@@ -35,9 +35,31 @@ resilience4j:
         failureRateThreshold: 2
         waitDurationInOpenState: 10000
         enabled: true
+    instances:
+      default:
+        slidingWindowSize: 3
+        minimumNumberOfCalls: 2
+        waitDurationInOpenState: 10s
 
 management:
   endpoints:
     web:
       exposure:
         include: circuitbreakers
+
+logging:
+  level:
+    root: INFO
+    com.github.resilience4j: DEBUG
+    org.springframework.web: DEBUG
+
+ribbon:
+  eureka:
+    enabled: true
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 1000
+        readTimeout: 1000

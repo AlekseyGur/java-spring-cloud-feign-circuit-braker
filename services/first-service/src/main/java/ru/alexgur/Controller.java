@@ -23,4 +23,10 @@ public class Controller {
                 hello.getText();
         return new ResponceDto("first-server", res);
     }
+
+    @GetMapping("/delay")
+    public ResponceDto checkSecondServiceDelay() {
+        secondServiceClient.checkDelay();
+        return new ResponceDto("first-server", "Done");
+    }
 }

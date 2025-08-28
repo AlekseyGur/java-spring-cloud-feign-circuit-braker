@@ -1,8 +1,8 @@
-package ru.yandex.practicum.interactionapi.api;
+package ru.alexgur.interactionapi.api;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
-import ru.yandex.practicum.interactionapi.dto.ResponceDto;
+import ru.alexgur.interactionapi.dto.ResponceDto;
 
 @FeignClient(name = "second-service",
         fallback = SecondServiceClientFallback.class)

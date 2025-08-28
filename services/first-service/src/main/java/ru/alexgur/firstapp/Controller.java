@@ -1,10 +1,11 @@
-package ru.alexgur;
+package ru.alexgur.firstapp;
 
 import org.springframework.web.bind.annotation.*;
-import ru.yandex.practicum.interactionapi.api.SecondServiceClient;
-import ru.yandex.practicum.interactionapi.dto.RequestDto;
-import ru.yandex.practicum.interactionapi.dto.ResponceDto;
+
 import lombok.RequiredArgsConstructor;
+import ru.alexgur.interactionapi.api.SecondServiceClient;
+import ru.alexgur.interactionapi.dto.RequestDto;
+import ru.alexgur.interactionapi.dto.ResponceDto;
 
 @RestController
 @RequiredArgsConstructor

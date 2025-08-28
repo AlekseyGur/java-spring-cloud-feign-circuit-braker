@@ -1,9 +1,9 @@
-package ru.alexgur;
+package ru.alexgur.sondapp;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
-import ru.yandex.practicum.interactionapi.api.SecondServiceClient;
-import ru.yandex.practicum.interactionapi.dto.ResponceDto;
+import ru.alexgur.interactionapi.api.SecondServiceClient;
+import ru.alexgur.interactionapi.dto.ResponceDto;
 
 @RestController
 @RequiredArgsConstructor

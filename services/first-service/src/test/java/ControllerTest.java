@@ -5,7 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.http.MediaType;
-import ru.alexgur.FirstApp;
+import ru.alexgur.firstapp.FirstApp;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;

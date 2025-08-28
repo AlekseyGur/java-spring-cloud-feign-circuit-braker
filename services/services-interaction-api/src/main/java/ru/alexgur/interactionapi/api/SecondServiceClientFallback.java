@@ -1,7 +1,7 @@
-package ru.yandex.practicum.interactionapi.api;
+package ru.alexgur.interactionapi.api;
 
 import org.springframework.stereotype.Component;
-import ru.yandex.practicum.interactionapi.dto.ResponceDto;
+import ru.alexgur.interactionapi.dto.ResponceDto;
 
 @Component
 public class SecondServiceClientFallback implements SecondServiceClient {

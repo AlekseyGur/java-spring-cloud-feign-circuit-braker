@@ -9,13 +9,13 @@ public class SecondServiceClientFallback implements SecondServiceClient {
     @Override
     public ResponceDto getHello() {
         return new ResponceDto("second-service",
-                "Второй сервис недоступен!");
+                "Второй сервис недоступен!", 503);
     }
 
     @Override
     public ResponceDto checkDelay(float delaySeconds) {
         return new ResponceDto("second-service",
                 "Второй сервис недоступен по таймауту в " +
-                        delaySeconds + " сек!");
+                        delaySeconds + " сек!", 503);
     }
 }

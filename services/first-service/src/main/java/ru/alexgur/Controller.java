@@ -13,21 +13,20 @@ public class Controller {
 
     @GetMapping("/echo")
     public ResponceDto getEcho(RequestDto req) {
-        return new ResponceDto("first-server", req.getText());
+        return new ResponceDto("first-server", req.getText(), 200);
     }
 
     @GetMapping("/hello")
     public ResponceDto checkSecondService() {
         ResponceDto hello = secondServiceClient.getHello();
-        String res = "First server got msg from second server's instance: " +
-                hello.getText();
-        return new ResponceDto("first-server", res);
+        String res = "First server got msg from second server's instance: " + hello.getText();
+        return new ResponceDto("first-server", res, hello.getStatusCode());
     }
 
     @GetMapping("/delay")
-    public ResponceDto checkSecondServiceDelay(@RequestParam(value = "delay",
-            defaultValue = "4.0") float delaySeconds) {
-        secondServiceClient.checkDelay(delaySeconds);
-        return new ResponceDto("first-server", "Done");
+    public ResponceDto checkSecondServiceDelay(@RequestParam(value = "delay", defaultValue = "4.0") float delaySeconds) {
+        ResponceDto hello = secondServiceClient.checkDelay(delaySeconds);
+        String res = "First server got msg from second server's instance: " + hello.getText();
+        return new ResponceDto("first-server", res, hello.getStatusCode());
     }
 }

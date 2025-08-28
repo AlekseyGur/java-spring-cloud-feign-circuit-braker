@@ -10,4 +10,5 @@ import lombok.experimental.FieldDefaults;
 public class ResponceDto {
     String serverName;
     String text;
+    int statusCode;
 }

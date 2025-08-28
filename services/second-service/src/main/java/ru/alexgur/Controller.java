@@ -12,7 +12,9 @@ public class Controller implements SecondServiceClient {
     @Override
     public ResponceDto getHello() {
         String res = "Hello from second server! PID: " + ProcessHandle.current().pid();
-        return new ResponceDto("second-server", res);
+        return new ResponceDto("second-server",
+                res,
+                200);
     }
 
     @Override
@@ -22,7 +24,9 @@ public class Controller implements SecondServiceClient {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        return new ResponceDto("second-server", "Hello");
+        return new ResponceDto("second-server",
+                "Hello",
+                200);
     }
 
 }

@@ -51,6 +51,8 @@ resilience4j:
         waitDurationInOpenState: 10s
         minimumNumberOfCalls: 2 # минимально необходимое количество успешных вызовов API перед началом анализа уровня отказа
 
+
+# actuator
 management:
   endpoints:
     web:

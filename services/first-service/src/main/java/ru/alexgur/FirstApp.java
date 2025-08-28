@@ -7,7 +7,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = {"ru.yandex.practicum.interactionapi.api"})
+@EnableFeignClients(
+    basePackages = {
+        "ru.yandex.practicum"
+    }
+)
 public class FirstApp {
 
     public static void main(String[] args) {

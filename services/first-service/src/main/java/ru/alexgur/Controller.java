@@ -16,7 +16,7 @@ public class Controller {
         return new ResponceDto("first-server", req.getText());
     }
 
-    @GetMapping("/check")
+    @GetMapping("/hello")
     public ResponceDto checkSecondService() {
         ResponceDto hello = secondServiceClient.getHello();
         String res = "First server got msg from second server's instance: " +
@@ -25,8 +25,9 @@ public class Controller {
     }
 
     @GetMapping("/delay")
-    public ResponceDto checkSecondServiceDelay() {
-        secondServiceClient.checkDelay();
+    public ResponceDto checkSecondServiceDelay(@RequestParam(value = "delay",
+            defaultValue = "4.0") float delaySeconds) {
+        secondServiceClient.checkDelay(delaySeconds);
         return new ResponceDto("first-server", "Done");
     }
 }

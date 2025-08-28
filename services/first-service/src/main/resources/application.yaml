@@ -15,7 +15,21 @@ spring:
       retry:
         useRandomPolicy: true
         max-interval: 6000
-
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 2000
+            readTimeout: 2000
+            loggerLevel: BASIC
+            # NONE — логирование отключено
+            # BASIC — базовый уровень (запросы и ответы)
+            # HEADERS — включает логирование заголовков
+            # FULL — полное логирование запросов и ответов
+      circuitbreaker:
+        enabled: true
+        alphanumeric-ids:
+          enabled: true
 eureka:
   instance:
     instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
@@ -31,35 +45,20 @@ resilience4j:
   circuitbreaker:
     configs:
       default:
-        slidingWindowSize: 3
-        failureRateThreshold: 2
-        waitDurationInOpenState: 10000
         enabled: true
-    instances:
-      default:
         slidingWindowSize: 3
-        minimumNumberOfCalls: 2
+        failureRateThreshold: 2 # % неудачных срабатываний для открытия
         waitDurationInOpenState: 10s
+        minimumNumberOfCalls: 2 # минимально необходимое количество успешных вызовов API перед началом анализа уровня отказа
 
 management:
   endpoints:
     web:
       exposure:
-        include: circuitbreakers
+        include: health,info,circuitbreakers
 
 logging:
   level:
     root: INFO
     com.github.resilience4j: DEBUG
     org.springframework.web: DEBUG
-
-ribbon:
-  eureka:
-    enabled: true
-
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 1000
-        readTimeout: 1000

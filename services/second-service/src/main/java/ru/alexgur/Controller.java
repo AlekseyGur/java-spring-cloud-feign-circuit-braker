@@ -9,14 +9,16 @@ import ru.yandex.practicum.interactionapi.dto.ResponceDto;
 @RequiredArgsConstructor
 public class Controller implements SecondServiceClient {
 
+    @Override
     public ResponceDto getHello() {
         String res = "Hello from second server! PID: " + ProcessHandle.current().pid();
         return new ResponceDto("second-server", res);
     }
 
-    public ResponceDto checkDelay()  {
+    @Override
+    public ResponceDto checkDelay(float delaySeconds)  {
         try {
-            Thread.sleep(60 * 1000); // Задержка в 60 секунд
+            Thread.sleep((long) (delaySeconds * 1000.0)); // Задержка в 60 секунд
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
